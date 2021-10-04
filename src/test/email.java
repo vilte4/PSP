@@ -1,79 +1,62 @@
 package test;
 
 public class email {
-    boolean dotSign(String email){
-        int howMany = 0;
-        for (int i = 0; i < email.length(); i++) {
-            char ch = email.charAt(i);
-            if (ch == '.') {
-                howMany++;
-            }
+
+    boolean atSign(String email)
+    {
+        for (int i=0; i<email.length(); i++)
+        {
+            if (email.charAt(i)=='@')
+                return true;
         }
-        char end = email.charAt(email.length()-1);
-        if(!(howMany != 0 && end == '.'))
-            return true;
-        else
-            return false;
-    }
-    boolean checkTLD(String email){
-        int howManyLetters = 0;
-        int iligis = email.length();
-        for (int i = email.length(); i > 1 ; i--) {
-            char ch = email.charAt(i-1);
-            if (ch != '.') {
-                howManyLetters++;
-            }
-            else
-                break;
-        }
-        if(howManyLetters > 1)
-            return true;
-        else
-            return false;
-    }
-    boolean checkDomain(String email){
-        int howManyLetters = 0;
-        for (int i = 0; i < email.length(); i++) {
-            char ch = email.charAt(i);
-            if (ch != '@') {
-                email = email.replace(Character.toString(ch),"");
-            }
-            else break;
-        }
-        for (int i = 0; i < email.length(); i++) {
-            char ch = email.charAt(i);
-            if (ch != '.') {
-                howManyLetters++;
-            }
-        }
-        if(howManyLetters > 1)
-            return true;
-        else
-            return false;
+        return false;
     }
 
-    boolean atSign(String email) {
-        int howMany = 0;
-        for (int i = 0; i < email.length(); i++) {
-            char ch = email.charAt(i);
-            if (ch == '@') {
-                howMany++;
-            }
-        }
-        if(howMany == 1)
-            return true;
-        else
-            return false;
-    }
-    boolean checkSymb(String email, String specSym){
-        for(int i=0; i<email.length(); i++) {
-            char ch = email.charAt(i);
-            for(int j=0; j<specSym.length(); j++){
-                char spec = specSym.charAt(j);
-                if(ch == spec)
+    boolean checkSymb(String email, String illegalSymbols)
+    {
+        for (int i=0; i<email.length(); i++)
+        {
+            for (int j=0; j<illegalSymbols.length(); j++)
+            {
+                if (email.charAt(i) == illegalSymbols.charAt(j))
                     return false;
             }
         }
         return true;
     }
+
+
+    boolean checkTLD(String email)
+    {
+        String TLD = email.substring(email.indexOf('@') + 1);
+        TLD = TLD.substring(TLD.indexOf('.') + 1);
+
+        for (int i=0; i<TLD.length(); i++)
+        {
+            char ch = TLD.charAt(i);
+            if (!(ch >= 'a' && ch <= 'z' || ch == '.'))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    boolean checkDomain(String email)
+    {
+        String domain = email.substring(email.indexOf('@') + 1);
+
+        if (domain.length() >= 1 && domain.length() <= 63)
+        {
+            if (!(domain.startsWith("-") || domain.charAt(domain.length()-1) == '-'))
+            {
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+    }
+
+
+
 }

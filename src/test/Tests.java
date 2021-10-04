@@ -10,15 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Tests {
     String emailgood = "arijusrancas@gmail.com";
-    String passwordgood = "Labas4522+";
-    String numbergood1 = "86124573";
-    String numbergood2 = "+3706124573";
+    String passwordgood = "Labas456_";
+    String numbergood1 = "861245737";
+    String numbergood2 = "+37061245733";
     int lengthOfPassword = 8;
     String specialSymbols = "~!$%^&*_=+}{'?-.";
     String IllegalSymbols = "¡¢£¤€";
     Passwords password;
     phone phone;
     email email;
+
     @BeforeEach
     void setUp(){
         password = new Passwords();
@@ -28,19 +29,18 @@ public class Tests {
 
     @Test
     void passwordChecker_Length(){
-        assert(password.hasLenght(passwordgood)>=lengthOfPassword);
+        assert(password.hasLength(passwordgood)>=lengthOfPassword);
     }
     @Test
     void passwordChecker_UpperCase(){
         assert(password.upperCase(passwordgood));
     }
     @Test
-    void passwordChecker_SpecialSym(){
-        assertTrue(password.checkSymb(passwordgood, specialSymbols));
+    void passwordChecker_SpecialSym(){ assertTrue(password.checkSymb(passwordgood, specialSymbols));
     }
     @Test
     void phoneValidator_OnlyNumbers(){
-        assert(phone.onlyNumbers(numbergood1));
+        assert(phone.onlyNumbers(numbergood2));
     }
     @Test
     void phoneValidator_Beginning(){
@@ -48,7 +48,7 @@ public class Tests {
     }
     @Test
     void phoneValidator_New(){
-    assert(phone.checkLength(numbergood1, 8));
+    assert(phone.checkLength(numbergood1, 9));
     assert(phone.checkPrefix(numbergood1, "8"));
     }
     @Test
@@ -63,8 +63,8 @@ public class Tests {
     void EmailValidator_Correct(){
         assertTrue(email.checkTLD(emailgood));
         assertTrue(email.checkDomain(emailgood));
-
     }
+
     @AfterEach
     void tearDown(){
 

@@ -1,6 +1,6 @@
 # PSP
 
----* PSP-3-UZDUOTIS BRANCHE YRA 1.3 UZDUOTIS. IPUSHINAU PO DEADLINE, TODEL PER VMA NEGALEJAU PATEIKTI NUORODOS. *---
+-* PSP-3-UZDUOTIS BRANCHE YRA 1.3 UŽDUOTIS. ĮPUSHINAU PO DEADLINE, TODĖL PER VMA NEBEGALĖJAU PATEIKTI NUORODOS. *-
 
 Testai buvo ganėtinai aiškūs, tik ne visi reikalingi/tikslūs. 
 Pavyzdžiui, testas slaptažodžio ilgio validacijai yra sukurtas taip, jog implementacijoje funkcija turi grąžinti slaptažodžio ilgį,

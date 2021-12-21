@@ -1,6 +1,6 @@
 # PSP
 
-* psp-3-uzduotis branche yra 1.3 užduotis. Įpushinau po deadline, todėl vma nebegalėjau pateikti nuorodos. *
+* PSP-3-UZDUOTIS BRANCHE YRA 1.3 UŽDUOTIS *
 
 Testai buvo ganėtinai aiškūs, tik ne visi reikalingi/tikslūs. 
 Pavyzdžiui, testas slaptažodžio ilgio validacijai yra sukurtas taip, jog implementacijoje funkcija turi grąžinti slaptažodžio ilgį,
